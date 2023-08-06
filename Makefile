@@ -8,7 +8,7 @@ make lint:
 	npx eslint .
 
 test:
-	make -C app test
+	npx jest
 
-report:
-	make -C app report
+test-coverage:
+	npx jest --coverage
