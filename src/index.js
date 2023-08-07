@@ -15,6 +15,7 @@ const genDiff = (filepath1, filepath2) => {
 
   const object1 = parsers(readFile1, format); // парсим файлы в обычные объекты
   const object2 = parsers(readFile2, format);
+
   const getResult = buildTree(object1, object2);
   return getResult;
 };

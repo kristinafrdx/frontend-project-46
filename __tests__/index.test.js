@@ -13,6 +13,6 @@ test('genDiff.json', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(expectFile);
 });
 
-test('gendiff.yml', () => {
+test('gendiff.yaml', () => {
   expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')).toBe(expectFile);
 });
