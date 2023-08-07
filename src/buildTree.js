@@ -4,7 +4,7 @@ const buildTree = (obj1, obj2) => {
   const getUnionKeys = _.sortBy(_.union(_.keys(obj2), _.keys(obj1)));
   const result = [];
 
-  getUnionKeys.map((key) => {
+  getUnionKeys.forEach((key) => {
     if (_.has(obj1, key) && _.has(obj2, key)) { // если ключи есть в обоих файлах
       if (obj1[key] === obj2[key]) {
         result.push(`    ${key}: ${obj1[key]}\n`);
