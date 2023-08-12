@@ -39,5 +39,5 @@ const stylish = (tree) => {
     return `${res.join('\n')}`;
   };
   return `{\n${iter(tree, 1)}\n}`;
-}
+};
 export default stylish;

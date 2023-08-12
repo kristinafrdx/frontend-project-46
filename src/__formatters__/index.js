@@ -1,4 +1,5 @@
-import stylish from './stylish.js'
+import stylish from './stylish.js';
+import plain from './plain.js';
 
 const formatDiff = (tree, format = 'stylish') => {
   switch (format) {
@@ -6,10 +7,10 @@ const formatDiff = (tree, format = 'stylish') => {
       return stylish(tree);
     // case '.json':
     //   return ;
-    // case 'plain':
-    //   return ;
+    case 'plain':
+      return plain(tree);
     default:
-      throw new Error ('Invalid format')
+      throw new Error('Invalid format');
   }
 };
 
