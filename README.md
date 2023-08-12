@@ -8,6 +8,9 @@
 ### GetDiff:
 [![asciicast](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi.svg)](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi)
 
+### GetDiff between nested objects:
+[![asciicast](https://asciinema.org/a/DUdH5K4J3QGSeMLnXBfD6FgYM.svg)](https://asciinema.org/a/DUdH5K4J3QGSeMLnXBfD6FgYM)
+
 ### Make lint, make test, make test-coverage:
 [![asciicast](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi.svg)](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi)
 
