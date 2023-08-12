@@ -3,9 +3,9 @@ import fs from 'fs';
 import process from 'process';
 import buildTree from './buildTree.js';
 import parsers from './parsers.js';
-import stylish from './stylish.js';
+import formatDiff from './__formatters__/index.js';
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const format1 = path.extname(filepath1);
   const format2 = path.extname(filepath2);
 
@@ -19,7 +19,7 @@ const genDiff = (filepath1, filepath2) => {
   const object2 = parsers(readFile2, format2);
 
   const tree = buildTree(object1, object2);
-  return stylish(tree);
+  return formatDiff(tree, formatName);
 };
 
 export default genDiff;

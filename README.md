@@ -10,3 +10,6 @@
 
 ### Make lint, make test, make test-coverage:
 [![asciicast](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi.svg)](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi)
+
+### Node CI:
+[![Node CI](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml/badge.svg?branch=main&event=status)](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml)
