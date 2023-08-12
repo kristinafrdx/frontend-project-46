@@ -1,27 +1,30 @@
 import _ from 'lodash';
 
-const buildTree = (obj1, obj2) => {
-  const getUnionKeys = _.sortBy(_.union(_.keys(obj2), _.keys(obj1)));
-  const result = [];
+const buildTree = (file1, file2) => {
+  const getUnionKeys = _.sortBy(_.union(_.keys(file2), _.keys(file1)));
 
-  getUnionKeys.forEach((key) => {
-    if (_.has(obj1, key) && _.has(obj2, key)) { // если ключи есть в обоих файлах
-      if (obj1[key] === obj2[key]) {
-        result.push(`    ${key}: ${obj1[key]}\n`);
-      } else { // ключи равны - значения нет // и значения не равны
-        result.push(`  - ${key}: ${obj1[key]}\n`);
-        result.push(`  + ${key}: ${obj2[key]}\n`); // добавляем в результирующий массив
-      }
+  return getUnionKeys.map((key) => {
+    if (!_.has(file2, key)) {
+      return { key, value: file1[key], type: 'deleted' };
     }
-    if (_.has(obj1, key) && !_.has(obj2, key)) { // ключ есть в первом и нет во втором
-      result.push(`  - ${key}: ${obj1[key]}\n`);
+    if (!_.has(file1, key)) {
+      return { key, value: file2[key], type: 'added' };
     }
-    if (!_.has(obj1, key) && _.has(obj2, key)) { // ключ есть во втором и нет в первом
-      result.push(`  + ${key}: ${obj2[key]}\n`);
+    if (_.isObject(file1[key]) && _.isObject(file2[key])) {
+      return { key, children: buildTree(file1[key], file2[key]), type: 'nested' };
+    }
+    if (file1[key] === file2[key]) {
+      return { key, value: file1[key], type: 'unchanged' };
+    }
+
+    if (file1[key] !== file2[key]) {
+      return {
+        key,
+        value1: file1[key],
+        value2: file2[key],
+        type: 'changed',
+      };
     }
   });
-  const res = result.join('');
-  return `{\n${res}}`;
 };
-
 export default buildTree;

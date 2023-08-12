@@ -3,6 +3,7 @@ import fs from 'fs';
 import process from 'process';
 import buildTree from './buildTree.js';
 import parsers from './parsers.js';
+import stylish from './stylish.js';
 
 const genDiff = (filepath1, filepath2) => {
   const format1 = path.extname(filepath1);
@@ -17,8 +18,8 @@ const genDiff = (filepath1, filepath2) => {
   const object1 = parsers(readFile1, format1); // парсим файлы в обычные объекты
   const object2 = parsers(readFile2, format2);
 
-  const getResult = buildTree(object1, object2);
-  return getResult;
+  const tree = buildTree(object1, object2);
+  return stylish(tree);
 };
 
 export default genDiff;
