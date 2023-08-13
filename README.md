@@ -15,3 +15,6 @@
 
 ### Make lint, make test, make test-coverage:
 [![asciicast](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi.svg)](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi)
+
+### GetDiff with plain-format
+[![asciicast](https://asciinema.org/a/DbMr2KfD98TSLR2qHM42hZSgg.svg)](https://asciinema.org/a/DbMr2KfD98TSLR2qHM42hZSgg)
