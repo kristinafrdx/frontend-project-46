@@ -5,6 +5,7 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/22291527cfe2d583fc1c/test_coverage)](https://codeclimate.com/github/kristinafrdx/frontend-project-46/test_coverage)
 
+[![Node CI](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml)
 
 ### GetDiff:
 [![asciicast](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi.svg)](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi)
