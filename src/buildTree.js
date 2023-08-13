@@ -5,25 +5,20 @@ const buildTree = (file1, file2) => {
   const result = getUnionKeys.map((key) => {
     if (!_.has(file2, key)) {
       return { key, value: file1[key], type: 'deleted' };
-    }
-    if (!_.has(file1, key)) {
+    } if (!_.has(file1, key)) {
       return { key, value: file2[key], type: 'added' };
-    }
-    if (_.isObject(file1[key]) && _.isObject(file2[key])) {
+    } if (_.isObject(file1[key]) && _.isObject(file2[key])) {
       return { key, children: buildTree(file1[key], file2[key]), type: 'nested' };
-    }
-    if (file1[key] === file2[key]) {
+    } if (file1[key] === file2[key]) {
       return { key, value: file1[key], type: 'unchanged' };
-    }
-    if (file1[key] !== file2[key]) {
+    } if (file1[key] !== file2[key]) {
       return {
         key,
         value1: file1[key],
         value2: file2[key],
         type: 'changed',
       };
-    }
-    return null;
+    } return null;
   });
   return result;
 };

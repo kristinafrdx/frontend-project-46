@@ -6,7 +6,6 @@ const getIndent = (depth, spacecount = 4) => {
   const spases = replaser.repeat(depth * spacecount - 2); // 2 знака на +-
   return spases;
 };
-
 const stringify = (noda, depth = 1) => {
   if (!_.isObject(noda)) {
     return `${noda}`;
@@ -15,7 +14,6 @@ const stringify = (noda, depth = 1) => {
   const result = obj.map(([key, value]) => `${getIndent(depth + 1)}${doubleIndent}${key}: ${stringify(value, depth + 1)}`).join('\n');
   return `{\n${result}\n${getIndent(depth)}${doubleIndent}}`;
 };
-
 const stylish = (tree) => {
   const iter = (node, depth = 1) => {
     const res = node.map((elem) => {
