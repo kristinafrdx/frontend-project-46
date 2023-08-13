@@ -37,7 +37,7 @@ const stylish = (tree) => {
           return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(elem.children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
         }
         default: {
-          throw new Error('Error');
+          return null;
         }
       }
     });

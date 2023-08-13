@@ -1,20 +1,10 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/kristinafrdx/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/kristinafrdx/frontend-project-46/actions)
+[![Actions Status](https://github.com/kristinafrdx/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/kristinafrdx/frontend-project-46/actions)  [![Maintainability](https://api.codeclimate.com/v1/badges/22291527cfe2d583fc1c/maintainability)](https://codeclimate.com/github/kristinafrdx/frontend-project-46/maintainability)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/22291527cfe2d583fc1c/maintainability)](https://codeclimate.com/github/kristinafrdx/frontend-project-46/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/22291527cfe2d583fc1c/test_coverage)](https://codeclimate.com/github/kristinafrdx/frontend-project-46/test_coverage)
-
-[![Node CI](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/22291527cfe2d583fc1c/test_coverage)](https://codeclimate.com/github/kristinafrdx/frontend-project-46/test_coverage)  [![Node CI](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/kristinafrdx/frontend-project-46/actions/workflows/main.yml)
 
 ### GetDiff:
-[![asciicast](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi.svg)](https://asciinema.org/a/KKEGtZXnyxqO1aaDmr0kh9lXi)
-
-### GetDiff between nested objects:
-[![asciicast](https://asciinema.org/a/DUdH5K4J3QGSeMLnXBfD6FgYM.svg)](https://asciinema.org/a/DUdH5K4J3QGSeMLnXBfD6FgYM)
+[![asciicast](https://asciinema.org/a/1rcyWdI4lWUNdnU96pUyL9th2.svg)](https://asciinema.org/a/1rcyWdI4lWUNdnU96pUyL9th2)
 
 ### Make lint, make test, make test-coverage:
-[![asciicast](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi.svg)](https://asciinema.org/a/Zj8gVVMsuS6hND4zxHznqG4oi)
-
-### GetDiff with plain-format
-[![asciicast](https://asciinema.org/a/DbMr2KfD98TSLR2qHM42hZSgg.svg)](https://asciinema.org/a/DbMr2KfD98TSLR2qHM42hZSgg)
+[![asciicast](https://asciinema.org/a/2H1UQXDQR172xHwbdD1kMprXE.svg)](https://asciinema.org/a/2H1UQXDQR172xHwbdD1kMprXE)
