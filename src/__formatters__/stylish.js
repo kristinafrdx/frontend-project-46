@@ -20,20 +20,25 @@ const stylish = (tree) => {
   const iter = (node, depth = 1) => {
     const res = node.map((elem) => {
       const { key, value, type } = elem;
-      if (type === 'added') {
-        return `${getIndent(depth)}+ ${key}: ${stringify(value, depth)}`;
-      }
-      if (type === 'deleted') {
-        return `${getIndent(depth)}- ${key}: ${stringify(value, depth)}`;
-      }
-      if (type === 'changed') {
-        return `${getIndent(depth)}- ${key}: ${stringify(elem.value1, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(elem.value2, depth)}`;
-      }
-      if (type === 'unchanged') {
-        return `${getIndent(depth)}${doubleIndent}${key}: ${stringify(value, depth)}`;
-      }
-      if (type === 'nested') {
-        return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(elem.children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
+      switch (type) {
+        case 'added': {
+          return `${getIndent(depth)}+ ${key}: ${stringify(value, depth)}`;
+        }
+        case 'deleted': {
+          return `${getIndent(depth)}- ${key}: ${stringify(value, depth)}`;
+        }
+        case 'changed': {
+          return `${getIndent(depth)}- ${key}: ${stringify(elem.value1, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(elem.value2, depth)}`;
+        }
+        case 'unchanged': {
+          return `${getIndent(depth)}${doubleIndent}${key}: ${stringify(value, depth)}`;
+        }
+        case 'nested': {
+          return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(elem.children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
+        }
+        default: {
+          throw new Error('Error');
+        }
       }
     });
     return `${res.join('\n')}`;

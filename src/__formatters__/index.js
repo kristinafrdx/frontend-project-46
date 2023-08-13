@@ -1,7 +1,7 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-const formatDiff = (tree, format = 'stylish') => {
+const formatDiff = (tree, format) => {
   switch (format) {
     case 'stylish':
       return stylish(tree);
