@@ -21,20 +21,15 @@ const stylish = (tree) => {
       switch (type) {
         case 'added': {
           return `${getIndent(depth)}+ ${key}: ${stringify(value, depth)}`;
-        }
-        case 'deleted': {
+        } case 'deleted': {
           return `${getIndent(depth)}- ${key}: ${stringify(value, depth)}`;
-        }
-        case 'changed': {
+        } case 'changed': {
           return `${getIndent(depth)}- ${key}: ${stringify(elem.value1, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(elem.value2, depth)}`;
-        }
-        case 'unchanged': {
+        } case 'unchanged': {
           return `${getIndent(depth)}${doubleIndent}${key}: ${stringify(value, depth)}`;
-        }
-        case 'nested': {
+        } case 'nested': {
           return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(elem.children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
-        }
-        default: {
+        } default: {
           return null;
         }
       }
