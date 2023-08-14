@@ -10,7 +10,7 @@ const getValue = (value) => {
   return value;
 };
 
-const plain = (tree, path = '') => {
+const makePlain = (tree, path = '') => {
   const result = tree.flatMap((elem) => {
     switch (elem.type) {
       case 'added': {
@@ -20,7 +20,7 @@ const plain = (tree, path = '') => {
         return `Property '${path}${elem.key}' was removed`;
       }
       case 'nested': {
-        return plain(elem.children, `${path}${elem.key}.`); // сюда копим путь
+        return makePlain(elem.children, `${path}${elem.key}.`); // here - saving path
       }
       case 'changed': {
         return `Property '${path}${elem.key}' was updated. From ${getValue(elem.value1)} to ${getValue(elem.value2)}`;
@@ -33,4 +33,4 @@ const plain = (tree, path = '') => {
   return result.join('\n');
 };
 
-export default plain;
+export default makePlain;

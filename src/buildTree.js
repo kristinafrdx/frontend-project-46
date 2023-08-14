@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 const buildTree = (file1, file2) => {
-  const getUnionKeys = _.sortBy(_.union(_.keys(file2), _.keys(file1)));
-  const result = getUnionKeys.map((key) => {
+  const getUniqKeys = _.sortBy(_.union(_.keys(file2), _.keys(file1)));
+  return getUniqKeys.map((key) => {
     if (!_.has(file2, key)) {
       return { key, value: file1[key], type: 'deleted' };
     } if (!_.has(file1, key)) {
@@ -20,7 +20,6 @@ const buildTree = (file1, file2) => {
       };
     } return null;
   });
-  return result;
 };
 
 export default buildTree;

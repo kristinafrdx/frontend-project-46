@@ -3,8 +3,8 @@ import _ from 'lodash';
 const doubleIndent = '  ';
 const getIndent = (depth, spacecount = 4) => {
   const replaser = ' ';
-  const spases = replaser.repeat(depth * spacecount - 2); // 2 знака на +-
-  return spases;
+  const spaces = replaser.repeat(depth * spacecount - 2); // 2 sign for +-
+  return spaces;
 };
 const stringify = (noda, depth = 1) => {
   if (!_.isObject(noda)) {
@@ -14,7 +14,7 @@ const stringify = (noda, depth = 1) => {
   const result = obj.map(([key, value]) => `${getIndent(depth + 1)}${doubleIndent}${key}: ${stringify(value, depth + 1)}`).join('\n');
   return `{\n${result}\n${getIndent(depth)}${doubleIndent}}`;
 };
-const stylish = (tree) => {
+const makeStylish = (tree) => {
   const iter = (node, depth = 1) => {
     const res = node.map((elem) => {
       const { key, value, type } = elem;
@@ -38,4 +38,4 @@ const stylish = (tree) => {
   };
   return `{\n${iter(tree, 1)}\n}`;
 };
-export default stylish;
+export default makeStylish;

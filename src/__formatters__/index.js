@@ -1,18 +1,18 @@
-import stylish from './stylish.js';
-import plain from './plain.js';
-import json from './json.js';
+import makeStylish from './stylish.js';
+import makePlain from './plain.js';
+import makeJson from './json.js';
 
-const formatDiff = (tree, format) => {
+const getFormatDiff = (tree, format) => {
   switch (format) {
     case 'stylish':
-      return stylish(tree);
+      return makeStylish(tree);
     case 'json':
-      return json(tree);
+      return makeJson(tree);
     case 'plain':
-      return plain(tree);
+      return makePlain(tree);
     default:
-      throw new Error('Invalid format');
+      throw new Error(`Format: '${format}' is't correct!`);
   }
 };
 
-export default formatDiff;
+export default getFormatDiff;
