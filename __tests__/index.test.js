@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import fs from 'node:fs';
 import { expect } from '@jest/globals';
-import genDiff from '../src/index.js';
+import getDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,18 +12,22 @@ const expectFileStylish = fs.readFileSync(getFixturePath('expectStylish.txt'), '
 const expectFilePlain = fs.readFileSync(getFixturePath('expectPlain.txt'), 'utf-8');
 const expectFileJson = fs.readFileSync(getFixturePath('expectJson.txt'), 'utf-8');
 
-test('genDiff.json', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(expectFileStylish);
+test('getDiff.json', () => {
+  expect(getDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(expectFileStylish);
 });
 
-test('gendiff.yaml', () => {
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')).toBe(expectFileStylish);
+test('getdiff.yaml', () => {
+  expect(getDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')).toBe(expectFileStylish);
+});
+
+test('getdiff.stylish', () => {
+  expect(getDiff('__fixtures__/file1.yaml', '__fixtures__/file2.json', 'stylish')).toBe(expectFileStylish);
 });
 
 test('gendiff.plain', () => {
-  expect(genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.json', 'plain')).toBe(expectFilePlain);
+  expect(getDiff('__fixtures__/file1.yaml', '__fixtures__/file2.json', 'plain')).toBe(expectFilePlain);
 });
 
 test('gendiff.json', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json')).toBe(expectFileJson);
+  expect(getDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json')).toBe(expectFileJson);
 });
