@@ -10,7 +10,7 @@
 ### GetDiff - the utility for getting files differences. 
 ### A user calls the programm with a format, which he wants and with the paths to files:
 ### For example: 
-  ## gendiff -f <plain/json/stylish> <pathToFile1> <pathToFile2>
+  ## gendiff -f [<plain/json/stylish>] pathToFile1 pathToFile2
 
 ### A path can be either relative or absolute.
 ### If the format wasn't set, then the default value would be 'stylysh'.
