@@ -3,7 +3,7 @@ import fs from 'fs';
 import process from 'process';
 import buildTree from './buildTree.js';
 import getParserFile from './parsers.js';
-import getFormatDiff from './__formatters__/index.js';
+import getFormatDiff from './formatters/index.js';
 
 const getDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const format1 = path.extname(filepath1);

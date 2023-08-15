@@ -7,23 +7,25 @@ const getValue = (value) => {
   if (_.isString(value)) {
     return `'${value}'`;
   }
-  return value;
+  return String(value);
 };
 
 const makePlain = (tree, path = '') => {
-  const result = tree.flatMap((elem) => {
-    switch (elem.type) {
+  const result = tree.flatMap(({
+    type, key, value, children, value1, value2,
+  }) => {
+    switch (type) {
       case 'added': {
-        return `Property '${path}${elem.key}' was added with value: ${getValue(elem.value)}`;
+        return `Property '${path}${key}' was added with value: ${getValue(value)}`;
       }
       case 'deleted': {
-        return `Property '${path}${elem.key}' was removed`;
+        return `Property '${path}${key}' was removed`;
       }
       case 'nested': {
-        return makePlain(elem.children, `${path}${elem.key}.`); // here - saving path
+        return makePlain(children, `${path}${key}.`); // here - saving path
       }
       case 'changed': {
-        return `Property '${path}${elem.key}' was updated. From ${getValue(elem.value1)} to ${getValue(elem.value2)}`;
+        return `Property '${path}${key}' was updated. From ${getValue(value1)} to ${getValue(value2)}`;
       }
       default: {
         return [];

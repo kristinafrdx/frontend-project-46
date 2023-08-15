@@ -16,19 +16,20 @@ const stringify = (noda, depth = 1) => {
 };
 const makeStylish = (tree) => {
   const iter = (node, depth = 1) => {
-    const res = node.map((elem) => {
-      const { key, value, type } = elem;
+    const res = node.map(({
+      key, value, type, value1, value2, children,
+    }) => {
       switch (type) {
         case 'added': {
           return `${getIndent(depth)}+ ${key}: ${stringify(value, depth)}`;
         } case 'deleted': {
           return `${getIndent(depth)}- ${key}: ${stringify(value, depth)}`;
         } case 'changed': {
-          return `${getIndent(depth)}- ${key}: ${stringify(elem.value1, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(elem.value2, depth)}`;
+          return `${getIndent(depth)}- ${key}: ${stringify(value1, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(value2, depth)}`;
         } case 'unchanged': {
           return `${getIndent(depth)}${doubleIndent}${key}: ${stringify(value, depth)}`;
         } case 'nested': {
-          return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(elem.children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
+          return `${getIndent(depth)}${doubleIndent}${key}: {\n${iter(children, depth + 1)}\n${getIndent(depth)}${doubleIndent}}`;
         } default: {
           return null;
         }
